@@ -1,7 +1,11 @@
 package main
 
-import "discord-monitor/internal/binance"
+import (
+	"discord-monitor/internal/config"
+	"discord-monitor/internal/discord"
+)
 
 func main() {
-	binance.PostReq()
+	token := config.FromEnv("token")
+	discord.Start(token)
 }
